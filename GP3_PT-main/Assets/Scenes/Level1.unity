@@ -3591,7 +3591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9c65d8bce8d3846986e59506e3d331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientation: {fileID: 2796777}
+  orientation: {fileID: 979886676}
   playerBullet: {fileID: 7774654881776378027, guid: f9d6d6692af3e444386afe491b234229, type: 3}
   shotSpeed: 1000
   shootKey: 324
