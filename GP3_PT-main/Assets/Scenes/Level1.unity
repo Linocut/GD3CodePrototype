@@ -3593,7 +3593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 979886676}
   playerBullet: {fileID: 7774654881776378027, guid: f9d6d6692af3e444386afe491b234229, type: 3}
-  shotSpeed: 1000
+  shotSpeed: 2000
   shootKey: 324
   shootButton: 337
 --- !u!1 &1279870398
