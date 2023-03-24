@@ -5,16 +5,17 @@ using UnityEngine;
 
     public class PlayerShooting : MonoBehaviour
 {
-    public Transform player;
+    public Transform orientation;
     public GameObject playerBullet;
     //shooting
     private GameObject shot;
     public float shotSpeed; 
     public KeyCode shootKey = KeyCode.Mouse1;
+    //placeholder for later
+    public KeyCode shootButton = KeyCode.JoystickButton7;
     //might take out
-    private Vector3 mousePosition;
+    private Vector3 mouseWorldPosition;
     private Vector3 vectorHit;
-    private Camera mainCamera;
    
     void Start()
     {
@@ -25,12 +26,11 @@ using UnityEngine;
     void Update()
     {
         if (Input.GetKeyDown(shootKey))
-            Shoot();
-
-            transform.LookAt(player);
+            transform.LookAt(orientation);
+            PlayerShoot();
     }
 
-    void Shoot(){
+    void PlayerShoot(){
         //mouse and keyboard
         if (Input.GetKeyDown(shootKey))
         {
