@@ -6,6 +6,7 @@ using UnityEngine;
     public class PlayerShooting : MonoBehaviour
 {
     public Transform orientation;
+    private Vector3 mouseWorldPosition;
     public GameObject playerBullet;
     //shooting
     private GameObject shot;
@@ -14,15 +15,13 @@ using UnityEngine;
     //placeholder for later
     public KeyCode shootButton = KeyCode.JoystickButton7;
     //might take out
-    private Vector3 mouseWorldPosition;
     private Vector3 vectorHit;
    
     void Start()
     {
-
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(shootKey))

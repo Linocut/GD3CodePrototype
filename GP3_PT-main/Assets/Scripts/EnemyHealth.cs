@@ -6,9 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-
-
-
+    public int damage;
 
 
     void Start()
@@ -26,6 +24,6 @@ public class EnemyHealth : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-       
+        
     }
 }
