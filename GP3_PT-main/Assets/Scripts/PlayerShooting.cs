@@ -14,12 +14,13 @@ using UnityEngine;
     public KeyCode shootKey = KeyCode.Mouse1;
     //placeholder for later
     public KeyCode shootButton = KeyCode.JoystickButton7;
-    //might take out
+    //might take out/wip
     private Vector3 vectorHit;
+    public int damage =25;
+    public GameObject EnemyHealth;
    
     void Start()
     {
-        
     }
 
     void Update()
@@ -35,6 +36,8 @@ using UnityEngine;
         {
             shot = Instantiate(playerBullet,transform.position,transform.rotation);
             shot.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward*shotSpeed);
+            // unfinshed collision.gameObject.EnemyHealth.TakeDamage(25);
         }
+
     }
 }
