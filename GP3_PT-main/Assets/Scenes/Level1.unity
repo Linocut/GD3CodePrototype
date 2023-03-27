@@ -243,10 +243,7 @@ MonoBehaviour:
   shotSpeed: 2000
   shootKey: 324
   shootButton: 337
-  damage: 25
-  EnemyHealth: {fileID: 0}
-  collision: {x: 0, y: 0, z: 0}
-  damageEffect: {fileID: 0}
+  bulletDamage: 25
 --- !u!1001 &4680438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3811,10 +3808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c967ecdf56fc2047b1eea625c857bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  playerBullet: {fileID: 7774654881776378027, guid: f9d6d6692af3e444386afe491b234229, type: 3}
-  damage: 25
+  startDamage: 0
+  currentDamage: 100
 --- !u!1 &1349164490
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    public GameObject playerBullet;
-    public int damage =25;
+    public int startDamage = 0;
+    public int currentDamage;
 
-    void Start()
+    void Start(int enemyDamage)
     {
-        currentHealth = maxHealth;
+        startDamage = 0;
+        currentDamage = enemyDamage; 
     }
 
 
@@ -23,10 +22,10 @@ public class EnemyHealth : MonoBehaviour
 
 
 
-    void TakeDamage(int damage)
+    void TakeDamage(int bulletDamage)
     {
-            currentHealth -= damage;
-            if(currentHealth <=0);
+            currentDamage += bulletDamage;
+            if(currentDamage >=100);
             Destroy(gameObject);
     }
 }

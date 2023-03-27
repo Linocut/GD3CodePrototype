@@ -13,18 +13,14 @@ using UnityEngine;
     private GameObject shot;
     public float shotSpeed; 
     public KeyCode shootKey = KeyCode.Mouse1;
-    //placeholder for later
+    //placeholder button for later
     public KeyCode shootButton = KeyCode.JoystickButton7;
-    //might take out/wip
-    private Vector3 vectorHit;
-    public int damage =25;
-    public GameObject EnemyHealth;
-    public Vector3 collision;
-    public GameObject damageEffect;
-   
+    public int bulletDamage;
+
     void Start()
     {
-        //Shooter = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] Shooter = GameObject.FindGameObjectsWithTag("Enemy");
+        bulletDamage = 25;
     }
 
     void Update()
@@ -42,18 +38,15 @@ using UnityEngine;
             shot.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward*shotSpeed);
         }
 
-   // void OnCollisonEnter(Collision collision)
+   void OnCollisonEnter(Collision collision)
         {
-          //  ContactPoint contact = collision.contacts[0];
-          //  Instantiate(damageEffect,contact.point,Quaternion.LookRotation(contact.normal));
+          ContactPoint contact = collision.contacts[0];
 
-         //   if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
             {
-           //     EnemyTar
-            }
-        }           // shot = Instantiate(bullet,position,lookRotation);
+                //currentDamage += 25;
 
-    //TakeDamage(20);
-
+            }    
+        }
     }
 }
