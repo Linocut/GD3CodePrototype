@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 2796780}
   - component: {fileID: 2796779}
   - component: {fileID: 2796778}
+  - component: {fileID: 2796781}
   m_Layer: 0
   m_Name: innercube
   m_TagString: Untagged
@@ -225,6 +226,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2796776}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2796781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2796776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9c65d8bce8d3846986e59506e3d331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 979886676}
+  bullet: {fileID: 7774654881776378027, guid: f9d6d6692af3e444386afe491b234229, type: 3}
+  shotSpeed: 2000
+  shootKey: 324
+  shootButton: 337
+  damage: 25
+  EnemyHealth: {fileID: 0}
+  collision: {x: 0, y: 0, z: 0}
+  damageEffect: {fileID: 0}
 --- !u!1001 &4680438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3419,7 +3441,6 @@ GameObject:
   - component: {fileID: 1240943438}
   - component: {fileID: 1240943432}
   - component: {fileID: 1240943431}
-  - component: {fileID: 1240943439}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -3579,24 +3600,6 @@ MonoBehaviour:
   dashDuration: 4
   dashCd: 1.5
   dashKey: 101
---- !u!114 &1240943439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240943430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b9c65d8bce8d3846986e59506e3d331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {fileID: 979886676}
-  playerBullet: {fileID: 7774654881776378027, guid: f9d6d6692af3e444386afe491b234229, type: 3}
-  shotSpeed: 2000
-  shootKey: 324
-  shootButton: 337
-  damage: 0
 --- !u!1 &1279870398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3810,8 +3813,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  damage: 0
   playerBullet: {fileID: 7774654881776378027, guid: f9d6d6692af3e444386afe491b234229, type: 3}
+  damage: 25
 --- !u!1 &1349164490
 GameObject:
   m_ObjectHideFlags: 0
@@ -4925,6 +4928,10 @@ PrefabInstance:
     - target: {fileID: 1851909680552585488, guid: 36c71405957d89340b63a7ecc764eaa6, type: 3}
       propertyPath: m_Name
       value: ' Damage Tester'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851909680552585488, guid: 36c71405957d89340b63a7ecc764eaa6, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1851909680552585498, guid: 36c71405957d89340b63a7ecc764eaa6, type: 3}
       propertyPath: m_RootOrder

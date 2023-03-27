@@ -6,8 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-    public int damage; 
     public GameObject playerBullet;
+    public int damage =25;
 
     void Start()
     {
@@ -27,8 +27,6 @@ public class EnemyHealth : MonoBehaviour
     {
             currentHealth -= damage;
             if(currentHealth <=0);
-            {
-                Destroy(gameObject);
-            }
-        }
+            Destroy(gameObject);
     }
+}

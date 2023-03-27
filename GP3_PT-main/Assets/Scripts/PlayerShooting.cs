@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine;
 {
     public Transform orientation;
     private Vector3 mouseWorldPosition;
-    public GameObject playerBullet;
+    public GameObject bullet;
     //shooting
     private GameObject shot;
     public float shotSpeed; 
@@ -18,9 +19,12 @@ using UnityEngine;
     private Vector3 vectorHit;
     public int damage =25;
     public GameObject EnemyHealth;
+    public Vector3 collision;
+    public GameObject damageEffect;
    
     void Start()
     {
+        //Shooter = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     void Update()
@@ -34,10 +38,22 @@ using UnityEngine;
         //mouse and keyboard
         if (Input.GetKeyDown(shootKey))
         {
-            shot = Instantiate(playerBullet,transform.position,transform.rotation);
+            shot = Instantiate(bullet,transform.position,transform.rotation) as GameObject;
             shot.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward*shotSpeed);
-            // unfinshed collision.gameObject.EnemyHealth.TakeDamage(25);
         }
+
+   // void OnCollisonEnter(Collision collision)
+        {
+          //  ContactPoint contact = collision.contacts[0];
+          //  Instantiate(damageEffect,contact.point,Quaternion.LookRotation(contact.normal));
+
+         //   if (collision.gameObject.tag == "Enemy")
+            {
+           //     EnemyTar
+            }
+        }           // shot = Instantiate(bullet,position,lookRotation);
+
+    //TakeDamage(20);
 
     }
 }
