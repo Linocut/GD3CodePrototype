@@ -12,41 +12,25 @@ using UnityEngine;
     //shooting
     private GameObject shot;
     public float shotSpeed; 
-    public KeyCode shootKey = KeyCode.Mouse1;
-    //placeholder button for later
-    public KeyCode shootButton = KeyCode.JoystickButton7;
-    public int bulletDamage;
 
     void Start()
     {
-        GameObject[] Shooter = GameObject.FindGameObjectsWithTag("Enemy");
-        bulletDamage = 25;
+    
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(shootKey))
+        if (Input.GetButtonDown("Shoot"))
             transform.LookAt(orientation);
             PlayerShoot();
     }
 
     void PlayerShoot(){
         //mouse and keyboard
-        if (Input.GetKeyDown(shootKey))
+        if (Input.GetButtonDown("Shoot"))
         {
             shot = Instantiate(bullet,transform.position,transform.rotation) as GameObject;
             shot.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward*shotSpeed);
-        }
-
-   void OnCollisonEnter(Collision collision)
-        {
-          ContactPoint contact = collision.contacts[0];
-
-        if (collision.gameObject.tag == "Enemy")
-            {
-                //currentDamage += 25;
-
-            }    
-        }
+        }    
     }
 }

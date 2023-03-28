@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1851909680552585495}
   - component: {fileID: 1851909680552585494}
   - component: {fileID: 1851909680552585489}
+  - component: {fileID: 5503647052845501453}
   m_Layer: 0
   m_Name: meleeEnemy (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,3 +156,17 @@ MonoBehaviour:
   proximityAngle: 360
   waypoints: []
   player: {fileID: 0}
+--- !u!114 &5503647052845501453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851909680552585488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c967ecdf56fc2047b1eea625c857bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDamage: 0
+  currentDamage: 0

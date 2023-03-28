@@ -7,10 +7,9 @@ public class EnemyHealth : MonoBehaviour
     public int startDamage = 0;
     public int currentDamage;
 
-    void Start(int enemyDamage)
+    void Start()
     {
-        startDamage = 0;
-        currentDamage = enemyDamage; 
+        currentDamage = startDamage; 
     }
 
 
@@ -18,14 +17,18 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
-
-
-
+    public void Projectile(){
+    Projectile playerBullet =this.transform.GetComponent<Projectile>();
+    Projectile bulletDamage =this.transform.GetComponent<Projectile>();
+    }
+    
     void TakeDamage(int bulletDamage)
     {
-            currentDamage += bulletDamage;
-            if(currentDamage >=100);
-            Destroy(gameObject);
+     currentDamage += bulletDamage;
+
+     if (currentDamage >= 100)
+        Destroy(this.gameObject);
     }
 }
