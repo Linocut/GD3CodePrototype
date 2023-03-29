@@ -15,6 +15,10 @@ public class MovementRB : MonoBehaviour
     private float zMove;
     private Vector3 movementDirection;
 
+    //audio
+    AudioSource audioSource;
+    public AudioSource sandWalk;
+
     
 
 
@@ -27,6 +31,7 @@ public class MovementRB : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        sandWalk = GetComponent<AudioSource>();
         
     }
 
@@ -42,9 +47,9 @@ public class MovementRB : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+            
+            sandWalk.Play();
         }
-
-        
     }
 
     void FixedUpdate()

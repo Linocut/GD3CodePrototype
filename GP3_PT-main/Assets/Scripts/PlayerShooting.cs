@@ -12,6 +12,7 @@ using UnityEngine;
     //shooting
     private GameObject shot;
     public float shotSpeed; 
+    //audio
     AudioSource audioSource;
     public AudioSource gunShot;
 
