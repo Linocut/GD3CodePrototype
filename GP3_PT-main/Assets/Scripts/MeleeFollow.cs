@@ -9,7 +9,8 @@ public class MeleeFollow : MonoBehaviour
     private enum AIState
     {
         Passive,
-        Hostile
+        Hostile,
+        Stun
 
     }
     private AIState aiState;
@@ -25,6 +26,7 @@ public class MeleeFollow : MonoBehaviour
     public bool randomWander;
     public bool alwaysMoving;
     public bool fleeFromPlayer;
+    public bool isStunned;
 
     [SerializeField]
     //serialized feilds allow you to see the following in the inspector 
@@ -92,7 +94,16 @@ public class MeleeFollow : MonoBehaviour
         IAmWaiting = false;
 
     }
-
+    public void StunOn()
+    {
+        aiState = AIState.Stun;
+        isStunned = true;
+    }
+    public void StunOff()
+    {
+        aiState = AIState.Passive;
+        isStunned = false;
+    }
     public Vector3 RandomNavMeshLocation()
     {
         //setting it to zero at the beginning will allow it to not be transformed additively each time 
@@ -318,14 +329,20 @@ public class MeleeFollow : MonoBehaviour
                 {
                     FieldOfViewCheck();
                 }
-                break; 
+                break;
+            case AIState.Stun:
+                navMeshAgent.speed = 0;
+                break;
 
 
 
 
         }
-        FieldOfViewCheck();
-        ProximityCheck();
+        if (!isStunned)
+        {
+            FieldOfViewCheck();
+            ProximityCheck();
+        }
 
 
 

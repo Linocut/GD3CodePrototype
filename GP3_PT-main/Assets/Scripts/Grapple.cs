@@ -9,6 +9,7 @@ public class Grapple : MonoBehaviour
     // it will casta  ray and if the hit target is a grapple hook layer then it will force the player in that direction 
   
     public LayerMask grapple;
+    public LayerMask enemy;
     private Vector3 joyVec; 
     RaycastHit objectHit;
     RaycastHit target; 
@@ -78,7 +79,24 @@ public class Grapple : MonoBehaviour
 
 
             }
-            
+            else if (Physics.Raycast(transform.position, transform.forward, out objectHit, 500, enemy))
+            {
+                Debug.DrawRay(transform.position, transform.forward, Color.green);
+                EnemyStun enemyStun = objectHit.transform.GetComponent<EnemyStun>();
+                if (enemyStun != null)
+                {
+
+                    enemyStun.Stun();
+
+                }
+
+
+                vectorHit = objectHit.point;
+                canGrapple = true;
+
+
+            }
+
         }
         if (Input.GetAxisRaw("Joystick Grapple") > 0)
         {

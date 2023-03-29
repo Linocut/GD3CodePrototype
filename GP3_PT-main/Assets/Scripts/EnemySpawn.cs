@@ -7,16 +7,26 @@ public class EnemySpawn : MonoBehaviour
     public GameObject[] enemyArray; 
 
 
-    private int i ; 
+    private GameObject i; 
    
+    //on start open the list and record the game objects i
+
+
 
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            for(i = 0; i < enemyArray.Length; i++)
+            foreach (GameObject i in enemyArray)
             {
-                enemyArray[i].SetActive(true); 
+                
+                    
+                if (!i.activeSelf)
+                {
+                    i.SetActive(true);
+                }
+
+              
             }
             
         }

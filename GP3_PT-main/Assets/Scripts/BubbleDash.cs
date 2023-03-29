@@ -24,8 +24,7 @@ public class BubbleDash : MonoBehaviour
     public float dashCd;
     private float dashCdTime;
 
-    [Header("Input")]
-    public KeyCode dashKey = KeyCode.E;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +36,7 @@ public class BubbleDash : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(dashKey))
+        if (Input.GetButtonDown("BubbleDash"))
             Dash();
 
         if (dashCdTime > 0)

@@ -21,7 +21,11 @@ public class EnemyDespawn : MonoBehaviour
         {
             for(i = 0; i < enemyArray.Length; i++)
             {
-                enemyArray[i].SetActive(false); 
+                if(!enemyArray[i] == null)
+                {
+                    enemyArray[i].SetActive(false);
+                }
+                
             }
             
         }
