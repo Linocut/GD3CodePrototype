@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 2796779}
   - component: {fileID: 2796778}
   - component: {fileID: 2796781}
-  - component: {fileID: 2796782}
   m_Layer: 0
   m_Name: innercube
   m_TagString: Untagged
@@ -243,21 +242,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2796782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2796776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b9c65d8bce8d3846986e59506e3d331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {fileID: 979886676}
-  bullet: {fileID: 5533569634813336240, guid: 3979bb0d5f91aa045b5681808feeb5e1, type: 3}
-  shotSpeed: 2000
 --- !u!1 &97672430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,6 +2668,7 @@ GameObject:
   - component: {fileID: 979886676}
   - component: {fileID: 979886678}
   - component: {fileID: 979886677}
+  - component: {fileID: 979886679}
   m_Layer: 0
   m_Name: grapple
   m_TagString: Untagged
@@ -2756,6 +2741,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979886675}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &979886679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979886675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1384e1e0083d02e498fc922347567a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5533569634813336240, guid: 3979bb0d5f91aa045b5681808feeb5e1, type: 3}
+  shotSpeed: 2000
 --- !u!4 &992327191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1851909680552585498, guid: 36c71405957d89340b63a7ecc764eaa6, type: 3}
