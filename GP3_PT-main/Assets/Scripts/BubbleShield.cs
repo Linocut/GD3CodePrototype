@@ -6,7 +6,7 @@ public class BubbleShield : MonoBehaviour
 {
     public GameObject shield;
     public float shieldTime;
-
+    public AudioManager am; 
 
 
     // Update is called once per frame
@@ -14,6 +14,7 @@ public class BubbleShield : MonoBehaviour
     {
         if (Input.GetButtonDown("BubbleShield"))
         {
+            am.Play("ShieldActivate");
             shield.gameObject.SetActive(true);
             Invoke("DownShield", shieldTime);
         }

@@ -14,6 +14,7 @@ public class Grapple : MonoBehaviour
     RaycastHit objectHit;
     RaycastHit target; 
     public float speed;
+    public float stunInvincibility; 
 
 
     private float startTime;
@@ -26,8 +27,9 @@ public class Grapple : MonoBehaviour
     private Vector3 vectorHit;
     private Vector3 mouseWorldPosition;
 
-    private bool withController = false; 
+    private bool withController = false;
 
+    public AudioManager am;
 
 
     string[] joystick;
@@ -71,16 +73,26 @@ public class Grapple : MonoBehaviour
         //this is the raycast for mouse to test if you want to grapple
         if (Input.GetButton("Grapple"))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out objectHit, 500, grapple))
+            am.Play("GrapplingHook");
+            if (Physics.Raycast(transform.position, transform.forward, out objectHit, 200, grapple))
             {
+
+
+
                 Debug.DrawRay(transform.position, transform.forward, Color.green);
                 vectorHit = objectHit.point;
                 canGrapple = true;
 
 
             }
-            else if (Physics.Raycast(transform.position, transform.forward, out objectHit, 500, enemy))
+            else if (Physics.Raycast(transform.position, transform.forward, out objectHit, 200, enemy))
             {
+                am.Play("GrapplingHook");
+
+
+                this.GetComponentInParent<BubbleDash>().Invincibility(stunInvincibility);
+
+
                 Debug.DrawRay(transform.position, transform.forward, Color.green);
                 EnemyStun enemyStun = objectHit.transform.GetComponent<EnemyStun>();
                 if (enemyStun != null)
@@ -100,7 +112,8 @@ public class Grapple : MonoBehaviour
         }
         if (Input.GetAxisRaw("Joystick Grapple") > 0)
         {
-            
+            am.Play("GrapplingHook");
+
             if (Physics.Raycast(transform.position, transform.forward, out objectHit, 500, grapple))
             {
 

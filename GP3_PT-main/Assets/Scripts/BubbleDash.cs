@@ -8,6 +8,7 @@ public class BubbleDash : MonoBehaviour
     public Transform orientation;
     public Transform playerCam;
     private Rigidbody rb;
+    public AudioManager aM;
 
     [Header("Bool States")]
     public bool isDashing;
@@ -46,7 +47,7 @@ public class BubbleDash : MonoBehaviour
     private void Dash()
     {
         // disable player movement? 
-
+        aM.Play("Dashing");
         if (dashCdTime > 0) return;
         else dashCdTime = dashCd;
 
@@ -63,6 +64,15 @@ public class BubbleDash : MonoBehaviour
     {
         isDashing = false;
         isInvincible = false;
+    }
+    public void Invincibility(float time)
+    {
+        isInvincible = true;
+        Invoke(nameof(StopInvincibility), time);
+    }
+    private void StopInvincibility()
+    {
+        isInvincible = false; 
     }
 
 

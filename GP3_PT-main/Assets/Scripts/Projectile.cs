@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public int bulletDamage;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.transform.tag == "Enemy")
         {

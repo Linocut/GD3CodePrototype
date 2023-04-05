@@ -6,19 +6,23 @@ using UnityEngine;
 
 public class RBPlayerShooting : MonoBehaviour
 {
-    //public Transform orientation;
-    //private Vector3 mouseWorldPosition;
+    public GameObject audioManagerObject;
     public GameObject bullet;
     public float shotSpeed;
-    //shooting
-    private GameObject shot;
-    //private Vector3 Offset;
-  
 
+    private GameObject shot;
+    private AudioManager audioManager;
+
+
+    void Start()
+    {
+        
+    }
     void Update()
     {
         if (Input.GetButtonDown("Shoot"))
         {
+            audioManagerObject.GetComponent<AudioManager>().Play("PlayerBullet");
             RbPlayerShoot();
         }
             

@@ -16,35 +16,26 @@ public class PlayerHealth : MonoBehaviour
     [Header("References")]
     public HealthBar healthBar;
     public ChargeBar chargeBar;
-    public BubbleDash bubbleDash; 
+    public BubbleDash bubbleDash;
+    public AudioManager audioManager;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
+        
         currentCharge = maxCharge;
         chargeBar.SetMaxCharge(maxCharge);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            UseCharge(1);
-        }
-    }
 
     public void TakeDamage(int damage)
     {
         if (!bubbleDash.isInvincible)
         {
+            audioManager.Play("PlayerHit");
             currentHealth -= damage;
 
             healthBar.SetHealth(currentHealth);

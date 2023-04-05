@@ -18,7 +18,7 @@ public class PickUp : MonoBehaviour
             PlayerCurrencyUI currencyScript = other.gameObject.GetComponent<PlayerCurrencyUI>();
             if (currencyScript != null)
             {
-                
+       
                 currencyScript.addCurrency(currencyValue);
                 Destroy(gameObject);
             }

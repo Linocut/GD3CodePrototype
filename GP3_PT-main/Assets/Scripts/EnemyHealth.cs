@@ -10,8 +10,8 @@ public class EnemyHealth : MonoBehaviour
     public int maxCurrency;
     public bool isEnemy;
     public GameObject currencyObj;
-    public Vector3 maxCurrencyOffset; 
-
+    public Vector3 maxCurrencyOffset;
+    public float plane;
     public int health = 100;
 
     private int currencyDrop;
@@ -19,7 +19,6 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int bulletDamage)
     {
-
         health = health - bulletDamage;
         if(health <= 0)
         {
@@ -45,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
         for (int i = 0; i <= currencyDrop; i++)
         {
             CurrencyOffset();
-            Instantiate(currencyObj, transform.position + currencyOffset, transform.rotation);
+            Instantiate(currencyObj, new Vector3 (transform.position.x , plane, transform.position.z) + currencyOffset, transform.rotation);
         }
         
 

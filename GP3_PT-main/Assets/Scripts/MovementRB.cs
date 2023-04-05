@@ -21,12 +21,15 @@ public class MovementRB : MonoBehaviour
     [Header("References")]
     public BubbleDash bD;
     [SerializeField] private Rigidbody rb;
-
+    [SerializeField] private Animator anim;
+    public AudioManager am; 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
+ 
         
     }
 
@@ -40,10 +43,21 @@ public class MovementRB : MonoBehaviour
         //rotate character to movement direction- it is a transform not a rb movement
         if (movementDirection != Vector3.zero)
         {
+            //animate run state 
+            anim.SetBool("isMoving", true);
+            //sound of walking
+            
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
         }
-
+        else
+        {
+            am.Play("SandStep");
+            //am.Stop("SandStep");
+            anim.SetBool("isMoving", false);
+            //animate idle state
+            //no sound of walking
+        }
         
     }
 
