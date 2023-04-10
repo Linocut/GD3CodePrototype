@@ -73,45 +73,15 @@ public class Grapple : MonoBehaviour
         //this is the raycast for mouse to test if you want to grapple
         if (Input.GetButton("Grapple"))
         {
-            am.Play("GrapplingHook");
-            if (Physics.Raycast(transform.position, transform.forward, out objectHit, 200, grapple))
-            {
-
-
-
-                Debug.DrawRay(transform.position, transform.forward, Color.green);
-                vectorHit = objectHit.point;
-                canGrapple = true;
-
-
-            }
-            else if (Physics.Raycast(transform.position, transform.forward, out objectHit, 200, enemy))
-            {
-                am.Play("GrapplingHook");
-
-
-                this.GetComponentInParent<BubbleDash>().Invincibility(stunInvincibility);
-
-
-                Debug.DrawRay(transform.position, transform.forward, Color.green);
-                EnemyStun enemyStun = objectHit.transform.GetComponent<EnemyStun>();
-                if (enemyStun != null)
-                {
-
-                    enemyStun.Stun();
-
-                }
-
-
-                vectorHit = objectHit.point;
-                canGrapple = true;
-
-
-            }
+            GrappleAction();
+            
 
         }
         if (Input.GetAxisRaw("Joystick Grapple") > 0)
         {
+            GrappleAction();
+
+            /*
             am.Play("GrapplingHook");
 
             if (Physics.Raycast(transform.position, transform.forward, out objectHit, 500, grapple))
@@ -125,6 +95,7 @@ public class Grapple : MonoBehaviour
 
 
             }
+            */
         }
 
         if (canGrapple == true)
@@ -134,6 +105,48 @@ public class Grapple : MonoBehaviour
         }
         
 
+
+    }
+    public void GrappleAction(){
+        //check charge amount 
+        //change charge amount 
+        
+        am.Play("GrapplingHook");
+        if (Physics.Raycast(transform.position, transform.forward, out objectHit, 200, grapple))
+        {
+
+
+
+            Debug.DrawRay(transform.position, transform.forward, Color.green);
+            vectorHit = objectHit.point;
+            canGrapple = true;
+
+
+        }
+        else if (Physics.Raycast(transform.position, transform.forward, out objectHit, 200, enemy))
+        {
+            am.Play("GrapplingHook");
+
+
+            this.GetComponentInParent<BubbleDash>().Invincibility(stunInvincibility);
+
+
+            Debug.DrawRay(transform.position, transform.forward, Color.green);
+            EnemyStun enemyStun = objectHit.transform.GetComponent<EnemyStun>();
+            if (enemyStun != null)
+            {
+
+                enemyStun.Stun();
+
+            }
+
+
+            vectorHit = objectHit.point;
+            canGrapple = true;
+
+
+        }
+        
     }
 
 

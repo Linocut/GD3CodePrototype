@@ -43,10 +43,21 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    void UseCharge(int used)
+    public void UseCharge(int used)
     {
         currentCharge -= used;
 
         chargeBar.SetCharge(currentCharge);
+    }
+
+
+    public bool ChargeCheck(){
+        if(currentCharge <= 0){
+            return false;
+        }
+        else{
+            return true; 
+        }
+
     }
 }

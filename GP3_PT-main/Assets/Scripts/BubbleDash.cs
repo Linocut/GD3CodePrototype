@@ -47,6 +47,10 @@ public class BubbleDash : MonoBehaviour
     private void Dash()
     {
         // disable player movement? 
+        // check charge amount 
+        //use charge 
+
+        
         aM.Play("Dashing");
         if (dashCdTime > 0) return;
         else dashCdTime = dashCd;

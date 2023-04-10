@@ -6522,6 +6522,10 @@ PrefabInstance:
       propertyPath: am
       value: 
       objectReference: {fileID: 355875848}
+    - target: {fileID: 3692219798782693857, guid: 7ea8f416b1cc4d54f84c38c1b6e02374, type: 3}
+      propertyPath: shieldCharge
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3692219798782693859, guid: 7ea8f416b1cc4d54f84c38c1b6e02374, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6616,7 +6620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692219798818022698, guid: 7ea8f416b1cc4d54f84c38c1b6e02374, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3692219798818022699, guid: 7ea8f416b1cc4d54f84c38c1b6e02374, type: 3}
       propertyPath: m_Radius
