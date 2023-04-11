@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     public float interactRange;
+    
 
     private void Update()
     {
@@ -16,6 +17,9 @@ public class PlayerInteract : MonoBehaviour
             {
                 if (collider.TryGetComponent(out NPCInteractable npcInteractable))
                 {
+                    
+
+                    gameObject.transform.LookAt(collider.transform);
                     npcInteractable.Interact();
                 }
             }

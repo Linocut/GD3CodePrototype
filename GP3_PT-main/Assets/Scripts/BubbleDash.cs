@@ -10,6 +10,9 @@ public class BubbleDash : MonoBehaviour
     private Rigidbody rb;
     public AudioManager aM;
 
+    private PlayerHealth playerHealth;
+    private bool chargeCheck;
+
     [Header("Bool States")]
     public bool isDashing;
     public bool isInvincible;
@@ -20,13 +23,20 @@ public class BubbleDash : MonoBehaviour
     public float dashForce;
     public float dashUpwardForce;
     public float dashDuration;
+    public int dashCharge;
 
     [Header("Cooldown")]
     public float dashCd;
     private float dashCdTime;
 
-    
+
     // Start is called before the first frame update
+    void OnEnable()
+    {
+        //get component for the player health
+
+        playerHealth = GetComponent<PlayerHealth>();
+    }
     void Start()
     {
         isDashing = false;
@@ -38,7 +48,18 @@ public class BubbleDash : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("BubbleDash"))
-            Dash();
+        {
+            chargeCheck = playerHealth.ChargeCheck(dashCharge);
+            if (chargeCheck)
+            {
+                playerHealth.UseCharge(dashCharge);
+
+                Dash();
+
+            }
+        }
+            
+       
 
         if (dashCdTime > 0)
             dashCdTime -= Time.deltaTime;

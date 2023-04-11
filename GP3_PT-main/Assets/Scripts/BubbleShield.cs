@@ -24,7 +24,7 @@ public class BubbleShield : MonoBehaviour
         if (Input.GetButtonDown("BubbleShield"))
         {
             //check charge amount 
-            chargeCheck = playerHealth.ChargeCheck();
+            chargeCheck = playerHealth.ChargeCheck(shieldCharge);
 
             if(chargeCheck){
                 playerHealth.UseCharge(shieldCharge);

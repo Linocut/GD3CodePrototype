@@ -7,7 +7,7 @@ public class Grapple : MonoBehaviour
 
     //grapple will casta  ray from the position that your grapple object faces which is determined by your mouse 
     // it will casta  ray and if the hit target is a grapple hook layer then it will force the player in that direction 
-  
+    public int grappleCharge;
     public LayerMask grapple;
     public LayerMask enemy;
     private Vector3 joyVec; 
@@ -29,10 +29,21 @@ public class Grapple : MonoBehaviour
 
     private bool withController = false;
 
+    private PlayerHealth playerHealth;
+    private bool chargeCheck;
+
     public AudioManager am;
 
 
     string[] joystick;
+
+
+    void OnEnable()
+    {
+        //get component for the player health
+
+        playerHealth = GetComponentInParent<PlayerHealth>();
+    }
 
     void Start()
     {
@@ -73,13 +84,31 @@ public class Grapple : MonoBehaviour
         //this is the raycast for mouse to test if you want to grapple
         if (Input.GetButton("Grapple"))
         {
-            GrappleAction();
+            //check charge
+            chargeCheck = playerHealth.ChargeCheck(grappleCharge);
+            if (chargeCheck)
+            {
+                
+
+                GrappleAction();
+
+            }
+
+            
             
 
         }
         if (Input.GetAxisRaw("Joystick Grapple") > 0)
         {
-            GrappleAction();
+            //check charge
+            chargeCheck = playerHealth.ChargeCheck(grappleCharge);
+            if (chargeCheck)
+            {
+                playerHealth.UseCharge(grappleCharge);
+
+                GrappleAction();
+
+            }
 
             /*
             am.Play("GrapplingHook");
@@ -108,8 +137,6 @@ public class Grapple : MonoBehaviour
 
     }
     public void GrappleAction(){
-        //check charge amount 
-        //change charge amount 
         
         am.Play("GrapplingHook");
         if (Physics.Raycast(transform.position, transform.forward, out objectHit, 200, grapple))
@@ -158,10 +185,13 @@ public class Grapple : MonoBehaviour
 
         fractionOfJourney = speed/ journeyLength;
         player.transform.position = Vector3.Lerp(player.transform.position, vectorHit, fractionOfJourney);
+        player.LookAt(vectorHit);
 
         if (player.transform.position == vectorHit)
         {
-            canGrapple = false; 
+            
+            canGrapple = false;
+            playerHealth.UseCharge(grappleCharge);
         }
     }
 

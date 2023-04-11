@@ -10,6 +10,8 @@ public class NPCInteractable : MonoBehaviour
     public GameObject simpleObj;
     public GameObject complexObj;
 
+
+
     public void Interact()
     {
         if (simple)

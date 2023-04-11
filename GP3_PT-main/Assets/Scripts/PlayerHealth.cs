@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int currentHealth;
 
     [Header("Charge Variables")]
-    public int maxCharge = 10;
+    public int maxCharge = 3;
     [SerializeField] private int currentCharge;
 
 
@@ -50,9 +50,25 @@ public class PlayerHealth : MonoBehaviour
         chargeBar.SetCharge(currentCharge);
     }
 
+    public void AddCharge(int chargeAdd)
+    {
+        if((currentCharge + chargeAdd ) <= maxCharge)
+        {
+            
+            currentCharge += chargeAdd;
+            chargeBar.SetCharge(currentCharge);
+        }
+        else
+        {
+           
+            // what else would you want to do if you dont add charge?
+        }
+        
+    }
 
-    public bool ChargeCheck(){
-        if(currentCharge <= 0){
+
+    public bool ChargeCheck(int amount){
+        if(currentCharge < amount){
             return false;
         }
         else{
@@ -60,4 +76,8 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+
+
+
+
 }

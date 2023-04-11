@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCurrencyUI : MonoBehaviour
 {
-    public int totalCurrency;
+    public GameObject CurrencyUI;
+    private int totalCurrency;
     public AudioManager am;
 
     public void addCurrency(int currency)
@@ -17,6 +19,12 @@ public class PlayerCurrencyUI : MonoBehaviour
     {
         totalCurrency = totalCurrency - currency;
     }
+
+    public void Update()
+    {
+        CurrencyUI.GetComponent<Text>().text = totalCurrency.ToString();
+    }
+    
 
     //over here we do a UI display with the uhhh uhhhhh uhuh? .. the currency. 
 
