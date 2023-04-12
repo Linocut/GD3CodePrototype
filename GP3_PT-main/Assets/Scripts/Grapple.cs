@@ -33,7 +33,7 @@ public class Grapple : MonoBehaviour
     private bool chargeCheck;
 
     public AudioManager am;
-
+    public float stunTime;
 
     string[] joystick;
 
@@ -48,6 +48,12 @@ public class Grapple : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+
+    }
+
+    public void IncreaseStun(float amount)
+    {
+        stunTime += amount;
 
     }
 
@@ -152,6 +158,9 @@ public class Grapple : MonoBehaviour
         }
         else if (Physics.Raycast(transform.position, transform.forward, out objectHit, 200, enemy))
         {
+
+
+            
             am.Play("GrapplingHook");
 
 
@@ -162,8 +171,8 @@ public class Grapple : MonoBehaviour
             EnemyStun enemyStun = objectHit.transform.GetComponent<EnemyStun>();
             if (enemyStun != null)
             {
-
-                enemyStun.Stun();
+                
+                enemyStun.Stun(stunTime);
 
             }
 

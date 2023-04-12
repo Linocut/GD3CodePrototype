@@ -119,7 +119,7 @@ MonoBehaviour:
   minCurrency: 1
   maxCurrency: 3
   isEnemy: 1
-  currencyObj: {fileID: 9113333245619956656, guid: 372970e62958ef04b83bb3ea12b202f9, type: 3}
+  currencyObj: {fileID: 9113333245619956656, guid: 4504f46c65db8a74190abd1eaa0757ad, type: 3}
   maxCurrencyOffset: {x: 1, y: 1, z: 1}
   plane: 0
   health: 100
@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed93cb05f83f1c4faf60715bfddf537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunTime: 3
 --- !u!195 &1851909680552585494
 NavMeshAgent:
   m_ObjectHideFlags: 0

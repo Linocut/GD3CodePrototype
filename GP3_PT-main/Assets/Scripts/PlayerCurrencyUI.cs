@@ -15,9 +15,20 @@ public class PlayerCurrencyUI : MonoBehaviour
 
         totalCurrency = totalCurrency + currency;
     }
-    public void subtractCurrency(int currency)
+    public void SubtractCurrency(int currency)
     {
         totalCurrency = totalCurrency - currency;
+    }
+
+    public bool CheckCurrency(int amount)
+    {
+        if (amount <= totalCurrency) {
+            return true;
+        }
+        else
+        {
+            return false; 
+        }
     }
 
     public void Update()

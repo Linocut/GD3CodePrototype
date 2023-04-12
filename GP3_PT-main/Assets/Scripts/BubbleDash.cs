@@ -65,6 +65,12 @@ public class BubbleDash : MonoBehaviour
             dashCdTime -= Time.deltaTime;
     }
 
+
+    public void IncreaseDash(float amount)
+    {
+        dashDuration += amount;
+    }
+
     private void Dash()
     {
         // disable player movement? 

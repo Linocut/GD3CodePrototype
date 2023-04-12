@@ -65,6 +65,10 @@ public class PlayerHealth : MonoBehaviour
         }
         
     }
+    public void AddMaxCharge(int maxAdd)
+    {
+        maxCharge += maxAdd; 
+    }
 
 
     public bool ChargeCheck(int amount){

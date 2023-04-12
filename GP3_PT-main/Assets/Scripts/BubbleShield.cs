@@ -12,11 +12,19 @@ public class BubbleShield : MonoBehaviour
     private PlayerHealth playerHealth; 
     private bool chargeCheck;
 
+
+    public void IncreaseTime(float amount)
+    {
+        shieldTime += amount;
+    }
+
     void OnEnable(){
         //get component for the player health
 
         playerHealth = GetComponent<PlayerHealth>();
     }
+
+   
 
     // Update is called once per frame
     void Update()
@@ -34,13 +42,14 @@ public class BubbleShield : MonoBehaviour
                 Invoke("DownShield", shieldTime);
 
             }
-            //decrease charge amount
+            
 
            
         }
     }
     void DownShield()
     {
+        
         shield.gameObject.SetActive(false);
     }
 }

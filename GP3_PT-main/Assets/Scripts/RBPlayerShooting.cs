@@ -14,10 +14,7 @@ public class RBPlayerShooting : MonoBehaviour
     private AudioManager audioManager;
 
 
-    void Start()
-    {
-        
-    }
+
     void Update()
     {
         if (Input.GetButtonDown("Shoot"))

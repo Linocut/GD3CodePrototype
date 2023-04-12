@@ -96,6 +96,7 @@ public class MeleeFollow : MonoBehaviour
     }
     public void StunOn()
     {
+        
         aiState = AIState.Stun;
         isStunned = true;
     }
@@ -331,6 +332,7 @@ public class MeleeFollow : MonoBehaviour
                 }
                 break;
             case AIState.Stun:
+                
                 navMeshAgent.speed = 0;
                 break;
 
